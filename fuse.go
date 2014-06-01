@@ -277,7 +277,7 @@ func (h *Header) RespondError(err Error) {
 	h.Conn.respond(out, unsafe.Sizeof(*out))
 }
 
-var maxWrite = syscall.Getpagesize()
+var maxWrite = 128 * 1024
 var bufSize = 4096 + maxWrite
 
 // a message represents the bytes of a single FUSE message
